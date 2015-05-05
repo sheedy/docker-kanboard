@@ -7,12 +7,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=/usr/local/bin/composer
 RUN cd /var/www && git clone https://github.com/fguillot/kanboard.git
 RUN cd /var/www/kanboard && composer install
-#ADD ports.conf /etc/apache2/ports.conf
-#ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN rm -rf /var/www/html && mv /var/www/kanboard /var/www/html
 RUN chown -R www-data:www-data /var/www/html/data
-
-# EXPOSE 8088
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
