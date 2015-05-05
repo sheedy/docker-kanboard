@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Frederic Guillot <fred@kanboard.net>
+MAINTAINER Michael Sheedy <git@michaelsheedy.com> # originally Frederic Guillot <fred@kanboard.net>
 
 RUN apt-get update && apt-get install -y apache2 php5 php5-sqlite php5-gd git curl && apt-get clean
 RUN php5enmod gd pdo_sqlite
